@@ -18,3 +18,6 @@ class a_class(object):
 class_instance = a_class()
 
 
+backup_pickle.save_session()
+
+

@@ -1,5 +1,9 @@
 import pickle
 from datetime import datetime
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def is_picklable(obj):
@@ -37,6 +41,7 @@ def save_session(
     # to save session
     with open(fpath, 'wb') as f:
         pickle.dump(bk, f)
+    logger.info(f"Pickled to {fpath}")
 
 
 def load_session(
