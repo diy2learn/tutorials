@@ -36,6 +36,11 @@ for k in dir():
         except TypeError:
             pass
 
+
+import sys
+print('Size of one item, e.g., `a_df`: ', sys.getsizeof(a_df))
+print('Size of `bk`: ', sys.getsizeof(bk))
+
 # to save session
 with open('./backup_workspace/backup/backup_pickle.pkl', 'wb') as f:
     pickle.dump(bk, f)
