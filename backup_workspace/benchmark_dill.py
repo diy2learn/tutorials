@@ -22,8 +22,9 @@ class_instance = a_class()
 dill.dump_session('./backup_workspace/backup/backup_dill.db')
 
 
-# to load your session
+# ====== to load your session ======
 import dill
+
 bk_restore = dill.load_session('./backup_workspace/backup/backup_dill.db')
 
 restored_variables = [el for el in dir() if el.startswith('a_')]

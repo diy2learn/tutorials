@@ -45,7 +45,28 @@ print('Size of `bk`: ', sys.getsizeof(bk))
 with open('./backup_workspace/backup/backup_pickle.pkl', 'wb') as f:
     pickle.dump(bk, f)
 
-# to load your session
+# ====== to load your session ======
 import pickle
+
+class a_class(object):
+    def class_func(self, n):
+        return n+1
+
+def a_func(x):
+    return x**2
+
+def is_picklable(obj):
+    try:
+        pickle.dumps(obj)
+    except Exception:
+        return False
+    return True
+
 with open('./backup_workspace/backup/backup_pickle.pkl', 'rb') as f:
     bk_restore = pickle.load(f)
+
+for k in bk_restore:
+    globals()[k] = bk_restore[k]
+
+restored_variables = [el for el in dir() if el.startswith('a_')]
+print(f'{len(restored_variables)} restored variables: ', restored_variables)
