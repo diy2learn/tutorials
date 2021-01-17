@@ -31,12 +31,15 @@ def save_session(
 
     bk = {}
     for k in dir():
-        obj = globals()[k]
-        if is_picklable(obj):
-            try:
-                bk.update({k: obj})
-            except TypeError:
-                pass
+        try:
+            obj = globals()[k]
+            if is_picklable(obj):
+                try:
+                    bk.update({k: obj})
+                except TypeError:
+                    pass
+        except KeyError:
+            pass
 
     # to save session
     with open(fpath, 'wb') as f:
