@@ -51,7 +51,7 @@ def save_session(
 
 
 def load_session(
-        fpath: str
+        fpath: str = None
 ):
     if fpath is None:
         fpath = f'./backup/backup_pickle.pkl'
