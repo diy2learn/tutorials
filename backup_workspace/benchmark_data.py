@@ -1,5 +1,4 @@
 import pandas
-import backup_pickle
 
 a_const = 1
 a_lst = [1, 2, 3]
@@ -16,8 +15,5 @@ class a_class(object):
         return n+1
 
 class_instance = a_class()
-
-
-backup_pickle.save_session()
 
 
