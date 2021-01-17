@@ -28,9 +28,9 @@ def get_timestamp():
 def save_session(
         fpath: str = None):
     if fpath is None:
-        if not os.path.exists('./data'):
-            os.makedirs('./data')
-        fpath = f'./data/backup_pickle.pkl'
+        if not os.path.exists('./backup'):
+            os.makedirs('./backup')
+        fpath = f'./backup/backup_pickle.pkl'
 
     bk = {}
     for k in dir():
@@ -53,6 +53,8 @@ def save_session(
 def load_session(
         fpath: str
 ):
+    if fpath is None:
+        fpath = f'./backup/backup_pickle.pkl'
     # to load your session
     with open(fpath, 'rb') as f:
         bk_restore = pickle.load(f)
