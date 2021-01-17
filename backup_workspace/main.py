@@ -1,3 +1,4 @@
+import logging
 import sys
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -8,4 +9,5 @@ import backup_pickle
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
     backup_pickle.save_session()
