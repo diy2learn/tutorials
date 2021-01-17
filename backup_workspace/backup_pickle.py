@@ -23,7 +23,7 @@ def get_timestamp():
 def save_session(
         fpath: str = None):
     if fpath is None:
-        fpath = f'./data/backup_{get_timestamp()}.pkl'
+        fpath = f'./data/backup_pickle.pkl'
 
     bk = {}
     for k in dir():
