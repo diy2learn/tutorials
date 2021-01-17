@@ -32,21 +32,21 @@ def save_session(
             os.makedirs('./backup')
         fpath = f'./backup/backup_pickle.pkl'
 
-    bk = {}
-    for k in dir():
-        try:
-            obj = globals()[k]
-            if is_picklable(obj):
-                try:
-                    bk.update({k: obj})
-                except TypeError:
-                    pass
-        except KeyError:
-            pass
+    __bk = {}
+    black_list = ['__bk']
+    keys = list(set(list(globals().keys())) - set(black_list))
+    for k in keys:
+        print('k: ', k)
+        obj = globals()[k]
+        if is_picklable(obj):
+            try:
+                __bk.update({k: obj})
+            except TypeError:
+                pass
 
     # to save session
     with open(fpath, 'wb') as f:
-        pickle.dump(bk, f)
+        pickle.dump(__bk, f)
     logger.info(f"Pickled to {fpath}")
 
 
