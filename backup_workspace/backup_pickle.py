@@ -1,4 +1,5 @@
 import pickle
+import os
 from datetime import datetime
 import logging
 
@@ -27,6 +28,8 @@ def get_timestamp():
 def save_session(
         fpath: str = None):
     if fpath is None:
+        if not os.path.exists('./data'):
+            os.makedirs('./data')
         fpath = f'./data/backup_pickle.pkl'
 
     bk = {}
