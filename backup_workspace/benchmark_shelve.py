@@ -15,7 +15,7 @@ class a_class(object):
     def class_func(self, n):
         return n+1
 
-class_instance = a_class()
+a_class_instance = a_class()
 
 # Backup with shelve
 bk = shelve.open('./backup_workspace/backup/backup_shelve', 'n')
