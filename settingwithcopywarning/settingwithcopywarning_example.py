@@ -67,4 +67,36 @@ warnings.filterwarnings("ignore")
 df1['promotion'] = 1
 
 
-# B.2
+# B.2 Explicitly copy
+import pandas as pd
+
+data = {
+    'id': [1, 2, 3],
+    'employee': ['Mark', 'Antoine', 'Clement'],
+    'sales': [50, 60, 70],
+    'pay_raise': [0, 0, 0]
+}
+df = pd.DataFrame(data)
+
+df1 = df.loc[df['sales'] > 50].copy()
+df1['pay_raise'] = 1
+
+# B.3 Set pd.options.mode.chained_assignment
+
+import pandas as pd
+
+data = {
+    'id': [1, 2, 3],
+    'employee': ['Mark', 'Antoine', 'Clement'],
+    'sales': [50, 60, 70],
+    'pay_raise': [0, 0, 0]
+}
+df = pd.DataFrame(data)
+
+# B.3.1 Raise error
+pd.options.mode.chained_assignment = 'raise'
+df.loc[df['sales'] > 50]['pay_raise'] = 1
+
+# B.3.1 Raise error
+pd.options.mode.chained_assignment = None
+df.loc[df['sales'] > 50]['pay_raise'] = 1
