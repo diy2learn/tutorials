@@ -11,7 +11,7 @@ def loop_inner(a, b):
     return a + 2 *b
 
 
-def proc_numpy(x, y):
+def calc_numpy(x, y):
     res = np.zeros(len(x))
     for i in range(n):
         for j in range(n):
@@ -20,7 +20,7 @@ def proc_numpy(x, y):
 
 
 @jit(nopython=True, cache=True)
-def proc_numba(x, y):
+def calc_numba(x, y):
     res = np.zeros(len(x))
     for i in range(n):
         for j in range(n):
@@ -34,32 +34,27 @@ if __name__ == "__main__":
     y = np.random.randn(nobs)
 
     start_time = time()
-    res_numpy = proc_numpy(x, y)
+    res_numpy = calc_numpy(x, y)
     time_numpy = 1e3 * (time() - start_time)
 
     start_time = time()
-    res_numba = proc_numba(x, y)
+    res_numba = calc_numba(x, y)
     time_numba = 1e3 * (time() - start_time)
 
     print('res_numpy == res_numba: ', np.all(res_numpy == res_numba))
     print(f"run time Numpy/Numba [ms]: {time_numpy: .2f}/{time_numba: .2f}")
 
     start_time = time()
-    res_numba = proc_numba(x, y)
+    res_numba = calc_numba(x, y)
     time_numba = 1e3 * (time() - start_time)
     print(f'Numba after compiled(1) [ms]: {time_numba: .2f}')
 
     start_time = time()
-    res_numba = proc_numba(x, y)
+    res_numba = calc_numba(x, y)
     time_numba = 1e3 * (time() - start_time)
     print(f'Numba after compiled(2) [ms]: {time_numba: .2f}')
 
     start_time = time()
-    res_numba = proc_numba(x, y)
-    time_numba = 1e3 * (time() - start_time)
-    print(f'Numba after compiled(3) [ms]: {time_numba: .2f}')
-
-    start_time = time()
-    res_numpy = proc_numpy(x, y)
+    res_numpy = calc_numpy(x, y)
     time_numpy = 1e3 * (time() - start_time)
     print(f'Numpy after first run(1) [ms]: {time_numpy: .2f}')
