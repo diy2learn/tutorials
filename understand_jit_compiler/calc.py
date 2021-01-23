@@ -19,7 +19,7 @@ def proc_numpy(x, y):
     return res
 
 
-@jit(nopython=True)
+@jit(nopython=True, cache=True)
 def proc_numba(x, y):
     res = np.zeros(len(x))
     for i in range(n):
