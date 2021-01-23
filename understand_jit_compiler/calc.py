@@ -35,7 +35,6 @@ if __name__ == "__main__":
     args = parse_args()
     nobs = args.nobs
     n = args.n
-
     x = np.random.randn(nobs)
     y = np.random.randn(nobs)
 
