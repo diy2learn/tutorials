@@ -14,7 +14,7 @@ def calc_numpy(x, y, n):
     return res
 
 
-@jit(nopython=True, cache=True)
+@jit(nopython=True)
 def calc_numba(x, y, n):
     res = np.zeros(len(x))
     for i in range(n):
