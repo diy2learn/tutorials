@@ -48,18 +48,3 @@ if __name__ == "__main__":
 
     print('check res_numpy == res_numba: ', np.all(res_numpy == res_numba))
     print(f"run time Numpy / Numba [ms]: {time_numpy: .2f} /{time_numba: .2f}")
-
-    start_time = time()
-    res_numba = calc_numba(x, y, n)
-    time_numba = 1e3 * (time() - start_time)
-    print(f'Numba after compiled(1) [ms]: {time_numba: .2f}')
-
-    start_time = time()
-    res_numba = calc_numba(x, y, n)
-    time_numba = 1e3 * (time() - start_time)
-    print(f'Numba after compiled(2) [ms]: {time_numba: .2f}')
-
-    start_time = time()
-    res_numpy = calc_numpy(x, y, n)
-    time_numpy = 1e3 * (time() - start_time)
-    print(f'Numpy after first run(1) [ms]: {time_numpy: .2f}')
