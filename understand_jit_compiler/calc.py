@@ -7,10 +7,6 @@ from numba import jit
 n = 1000
 
 
-def loop_inner(a, b):
-    return a + 2 *b
-
-
 def calc_numpy(x, y):
     res = np.zeros(len(x))
     for i in range(n):
