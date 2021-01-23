@@ -11,7 +11,7 @@ def calc_numpy(x, y):
     res = np.zeros(len(x))
     for i in range(n):
         for j in range(n):
-            res += np.add(x, y)
+            res += np.add(i*x, j*y)
     return res
 
 
@@ -20,7 +20,7 @@ def calc_numba(x, y):
     res = np.zeros(len(x))
     for i in range(n):
         for j in range(n):
-            res += np.add(x, y)
+            res += np.add(i*x, j*y)
     return res
 
 
