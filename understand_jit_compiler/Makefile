@@ -12,3 +12,6 @@ numba_large_data_size:
 
 numba_many_loops:
 	python calc_with_many_loops.py --n=1000 --nobs=1000
+
+grid_search:
+	python calc_grid_search.py
