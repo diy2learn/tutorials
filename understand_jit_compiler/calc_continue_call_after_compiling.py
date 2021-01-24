@@ -14,7 +14,7 @@ def calc_numpy(x, y, n):
     return res
 
 
-@jit(nopython=True, cache=True)
+@jit(nopython=True)
 def calc_numba(x, y, n):
     res = np.zeros(len(x))
     for i in range(n):
@@ -58,6 +58,11 @@ if __name__ == "__main__":
     res_numba = calc_numba(x, y, n)
     time_numba = 1e3 * (time() - start_time)
     print(f'Numba after compiled(2) [ms]: {time_numba: .2f}')
+
+    start_time = time()
+    res_numba = calc_numba(x, y, n)
+    time_numba = 1e3 * (time() - start_time)
+    print(f'Numba after compiled(3) [ms]: {time_numba: .2f}')
 
     start_time = time()
     res_numpy = calc_numpy(x, y, n)
