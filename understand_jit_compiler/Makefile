@@ -6,3 +6,9 @@ continue_after_compiling:
 
 continue_with_cached:
 	python calc_with_cache.py --n=100 --nobs=1000
+
+numba_large_data_size:
+	python calc_with_large_data.py --n=10 --nobs=500000
+
+numba_many_loops:
+	python calc_with_many_loops.py --n=1000 --nobs=1000
